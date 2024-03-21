@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/havoc_even.mk
+    $(LOCAL_DIR)/lineage_even.mk
