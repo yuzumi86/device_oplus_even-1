@@ -32,6 +32,8 @@ PRODUCT_BRAND := realme
 PRODUCT_MODEL := realme C25 Series
 PRODUCT_MANUFACTURER := realme
 TARGET_BOOT_ANIMATION_RES := 1080
+HAVOC_BUILD_TYPE := Unofficial
+HAVOC_MAINTAINER := cumaRull
 
 # Build info
 BUILD_FINGERPRINT := "google/coral/coral:12/SP2A.220505.002/8353555:user/release-keys"
