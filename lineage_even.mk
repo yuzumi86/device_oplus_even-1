@@ -14,8 +14,16 @@
 # limitations under the License.
 #
 
-# Inherit some common Pixel-Experience stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common Lineage stuff
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+RISING_BUILDTYPE := UNOFFICIAL
+RISING_MAINTAINER := ismasrull
+TARGET_BUILD_APERTURE_CAMERA := true
+WITH_GMS := true
+TARGET_CORE_GMS := true
+TARGET_USE_GOOGLE_TELEPHONY := true
+TARGET_CORE_GMS_EXTRAS := true
+TARGET_SUPPORTS_QUICK_TAP := true
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
@@ -26,7 +34,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 $(call inherit-product, device/realme/even/device.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := aosp_even
+PRODUCT_NAME := lineage_even
 PRODUCT_DEVICE := even
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := realme C25 Series
