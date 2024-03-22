@@ -18,6 +18,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_even.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_lavender-eng \
-    lineage_lavender-userdebug \
-    lineage_lavender-user
+    lineage_even-eng \
+    lineage_even-userdebug \
+    lineage_even-user
