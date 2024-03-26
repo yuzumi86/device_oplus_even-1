@@ -59,14 +59,14 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/audio/configs/audio_policy_configuration.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_policy_configuration.xml
 
 # Bluetooth
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0 \
-    android.hardware.bluetooth@1.0.vendor \
-    android.hardware.bluetooth@1.1 \
-    android.hardware.bluetooth@1.1.vendor \
+# PRODUCT_PACKAGES += \
+#    android.hardware.bluetooth@1.0 \
+#    android.hardware.bluetooth@1.0.vendor \
+#    android.hardware.bluetooth@1.1 \
+#    android.hardware.bluetooth@1.1.vendor \
 #    android.hardware.bluetooth.audio@2.1-impl \
-    libbt-vendor \
-    libldacBT_bco
+#    libbt-vendor \
+#    libldacBT_bco
 
 PRODUCT_PACKAGES += \
     libbtconfigstore
