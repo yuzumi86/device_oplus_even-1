@@ -51,7 +51,7 @@ PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
 # Audio
 PRODUCT_PACKAGES += \
-#    audio.a2dp.default
+    audio.a2dp.default
 
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/audio/configs/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
@@ -64,7 +64,7 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor \
     android.hardware.bluetooth@1.1 \
     android.hardware.bluetooth@1.1.vendor \
-    android.hardware.bluetooth.audio@2.1-impl \
+#    android.hardware.bluetooth.audio@2.1-impl \
     libbt-vendor \
     libldacBT_bco
 
