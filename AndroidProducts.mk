@@ -16,3 +16,8 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_even.mk
+
+COMMON_LUNCH_CHOICES := \
+    lineage_even-eng \
+    lineage_even-userdebug \
+    lineage_even-user

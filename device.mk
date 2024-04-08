@@ -49,24 +49,59 @@ PRODUCT_COMPRESSED_APEX := false
 # Extra VNDK Versions
 PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
- Audio
- PRODUCT_PACKAGES += \
-    audio.a2dp.default
+# Audio
+PRODUCT_PACKAGES += \
+    android.hardware.audio@6.0.vendor \
+    android.hardware.audio.service \
+    android.hardware.audio@6.0-impl:32 \
+    android.hardware.audio.effect@6.0-impl:32 \
+    android.hardware.audio.common@6.0-util \
+    android.hardware.audio.common-util.vendor \
+    android.hardware.audio.common@6.0-util.vendor \
+    android.hardware.audio@6.0-util \
+    android.hardware.audio@6.0-util.vendor \
+    android.hardware.soundtrigger@2.3.vendor \
+    android.hardware.bluetooth.audio-impl \
 
- PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
-    $(DEVICE_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PLATFORM_VNDK_VERSION)/etc/audio_policy_configuration.xml \
-    $(DEVICE_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_policy_configuration.xml
+PRODUCT_PACKAGES += \
+    audio_policy.stub \
+    audio.bluetooth.default \
+    audio.r_submix.default \
+    audio.usb.default \
+
+PRODUCT_PACKAGES += \
+    libaudiofoundation.vendor \
+    libaudiopreprocessing \
+    libbundlewrapper \
+    libdownmix \
+    libtinycompress \
+    libalsautils \
+    libnbaio_mono
+
+PRODUCT_PACKAGES += \
+    MtkInCallService
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
+
+PRODUCT_COPY_FILES += \
+    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml
 
 # Bluetooth
- PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0 \
+PRODUCT_PACKAGES += \
+    libbluetooth_audio_session \
+    android.hardware.bluetooth.a2dp@1.0 \
     android.hardware.bluetooth@1.0.vendor \
-    android.hardware.bluetooth@1.1 \
-    android.hardware.bluetooth@1.1.vendor \
-    android.hardware.bluetooth.audio@2.1-impl \
-    libbt-vendor \
-    libldacBT_bco
+    android.hardware.bluetooth.a2dp@1.0.vendor
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1600
+TARGET_SCREEN_WIDTH := 720
 
 PRODUCT_PACKAGES += \
     libbtconfigstore
