@@ -78,8 +78,6 @@ PRODUCT_PACKAGES += \
     libalsautils \
     libnbaio_mono
 
-PRODUCT_PACKAGES += \
-    MtkInCallService
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
@@ -103,17 +101,11 @@ PRODUCT_PACKAGES += \
 TARGET_SCREEN_HEIGHT := 1600
 TARGET_SCREEN_WIDTH := 720
 
-PRODUCT_PACKAGES += \
-    libbtconfigstore
 
 # Camera
 PRODUCT_PACKAGES += \
-    Camera
+    $(DEVICE_PATH)/configs/apps/Camera
 
-# Configstore
-PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.0-service \
-    android.hardware.configstore@1.1-service
 
 # DT2W
 PRODUCT_PACKAGES += \
@@ -143,9 +135,9 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
-    init.mt6768.rc \
-    fstab.mt6768 \
-    perf_profile.sh
+    $(DEVICE_PATH)/rootdir/etc/init.mt6768.rc \
+    $(DEVICE_PATH)/rootdir/etc/fstab.mt6768 \
+    $(DEVICE_PATH)/rootdir/bin/perf_profile.sh
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -180,18 +172,6 @@ PRODUCT_PACKAGES += \
     mtk-ims \
     mtk-ims-telephony
 
-# NFC
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
-    com.gsma.services.nfc  \
-    NfcNci \
-    SecureElement \
-    Tag
-
-# Offline charger
-PRODUCT_PACKAGES += \
-    charger_res_images \
-    product_charger_res_images
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -231,7 +211,7 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Screen Recorder
 PRODUCT_PACKAGES += \
-    ScreenRecorder
+    $(DEVICE_PATH)/configs/apps/ScreenRecorder
 	
 # Speed up
 PRODUCT_DEXPREOPT_SPEED_APPS += \
@@ -244,6 +224,5 @@ PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
-    TetheringConfigOverlay \
-    wpa_supplicant.conf \
-    WifiOverlay
+    $(DEVICE_PATH)/rro_overlays/TetheringConfigOverlay \
+    $(DEVICE_PATH)/rro_overlays/WifiOverlay
