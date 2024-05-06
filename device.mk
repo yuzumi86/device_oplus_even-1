@@ -46,9 +46,6 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 # Keep this after including updatable_apex.mk
 PRODUCT_COMPRESSED_APEX := false
 
-# Extra VNDK Versions
-PRODUCT_EXTRA_VNDK_VERSIONS := 30
-
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0.vendor \
