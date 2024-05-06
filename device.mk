@@ -50,8 +50,8 @@ PRODUCT_COMPRESSED_APEX := false
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0.vendor \
     android.hardware.audio.service \
-    android.hardware.audio@6.0-impl:32 \
-    android.hardware.audio.effect@6.0-impl:32 \
+    android.hardware.audio@6.0-impl:64 \
+    android.hardware.audio.effect@6.0-impl:64 \
     android.hardware.audio.common@6.0-util \
     android.hardware.audio.common-util.vendor \
     android.hardware.audio.common@6.0-util.vendor \
