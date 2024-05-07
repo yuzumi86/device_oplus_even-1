@@ -147,6 +147,12 @@ PRODUCT_PACKAGES += \
     libsuspend \
     android.hardware.health@2.0
 
+# Health
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.1-service \
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.0-impl-2.1
+
 # Keymaster
 PRODUCT_PACKAGES += \
     libkeymaster4.vendor:64 \
