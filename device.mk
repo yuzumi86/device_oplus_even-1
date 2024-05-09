@@ -51,22 +51,44 @@ PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
 # Audio
 PRODUCT_PACKAGES += \
-    audio.a2dp.default
+    android.hardware.audio@6.0.vendor \
+    android.hardware.audio.service \
+    android.hardware.audio@6.0-impl:64 \
+    android.hardware.audio.effect@6.0-impl:64 \
+    android.hardware.audio.common@6.0-util \
+    android.hardware.audio.common-util.vendor \
+    android.hardware.audio.common@6.0-util.vendor \
+    android.hardware.audio@6.0-util \
+    android.hardware.audio@6.0-util.vendor \
+    android.hardware.soundtrigger@2.3.vendor \
+    android.hardware.bluetooth.audio-impl \
+
+PRODUCT_PACKAGES += \
+    audio_policy.stub \
+    audio.bluetooth.default \
+    audio.r_submix.default \
+    audio.usb.default \
+
+PRODUCT_PACKAGES += \
+    libaudiofoundation.vendor \
+    libaudiopreprocessing \
+    libbundlewrapper \
+    libdownmix \
+    libtinycompress \
+    libalsautils \
+    libnbaio_mono
+
 
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/audio/configs/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
-    $(DEVICE_PATH)/audio/configs/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PLATFORM_VNDK_VERSION)/etc/audio_policy_configuration.xml \
-    $(DEVICE_PATH)/audio/configs/audio_policy_configuration.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_policy_configuration.xml
+    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
 
-# Bluetooth
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0 \
-    android.hardware.bluetooth@1.0.vendor \
-    android.hardware.bluetooth@1.1 \
-    android.hardware.bluetooth@1.1.vendor \
-    android.hardware.bluetooth.audio@2.1-impl \
-    libbt-vendor \
-    libldacBT_bco
+PRODUCT_COPY_FILES += \
+    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml
 
 PRODUCT_PACKAGES += \
     libbtconfigstore
@@ -79,6 +101,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service \
     android.hardware.configstore@1.1-service
+
+# Media
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/media/,$(TARGET_COPY_OUT_VENDOR)/etc)
+
+PRODUCT_COPY_FILES += \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml
+
+PRODUCT_PACKAGES += \
+    libavservices_minijail_vendor \
+    libavservices_minijail.vendor
 
 # DT2W
 PRODUCT_PACKAGES += \
@@ -212,3 +246,22 @@ PRODUCT_PACKAGES += \
     TetheringConfigOverlay \
     wpa_supplicant.conf \
     WifiOverlay
+    
+# WiFi
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    $(DEVICE_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
+    $(DEVICE_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
+
+PRODUCT_PACKAGES += \
+    android.hardware.wifi-service-lazy
+
+PRODUCT_PACKAGES += \
+    hostapd \
+    android.hardware.wifi@1.3.vendor \
+    android.hardware.wifi.supplicant@1.3.vendor
+
+PRODUCT_PACKAGES += \
+    libkeystore-engine-wifi-hidl \
+    libkeystore-wifi-hidl
+
