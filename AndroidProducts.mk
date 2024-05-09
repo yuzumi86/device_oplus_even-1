@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_even.mk
+    $(LOCAL_DIR)/banana_even.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_even-eng \
-    lineage_even-userdebug \
-    lineage_even-user
+    banana_even-eng \
+    banana_even-userdebug \
+    banana_even-user
