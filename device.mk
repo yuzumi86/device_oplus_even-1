@@ -95,7 +95,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Camera
+    $(DEVICE_PATH)/configs/apps/Camera
 
 # Configstore
 PRODUCT_PACKAGES += \
@@ -230,7 +230,7 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Screen Recorder
 PRODUCT_PACKAGES += \
-    ScreenRecorder
+    $(DEVICE_PATH)/configs/apps/ScreenRecorder
 	
 # Speed up
 PRODUCT_DEXPREOPT_SPEED_APPS += \
