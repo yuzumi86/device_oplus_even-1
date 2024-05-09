@@ -204,25 +204,7 @@
             <instance>imsa</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.mediatek.hardware.interfaces_tc1.mtkradioex_tc1</name>
-        <version>2.1</version>
-        <interface>
-            <name>IMtkRadioEx</name>
-            <instance>mtkAssist1</instance>
-            <instance>mtkAssist2</instance>
-            <instance>mtkCap1</instance>
-            <instance>mtkCap2</instance>
-            <instance>mtkEm1</instance>
-            <instance>mtkEm2</instance>
-            <instance>mtkSe1</instance>
-            <instance>mtkSe2</instance>
-            <instance>mtkSlot1</instance>
-            <instance>mtkSlot2</instance>
-            <instance>mtkSmartRatSwitch1</instance>
-            <instance>mtkSmartRatSwitch2</instance>
-        </interface>
-    </hal>
+    
     <hal format="hidl" optional="true">
         <name>vendor.mediatek.hardware.keyinstall</name>
         <version>1.0</version>
