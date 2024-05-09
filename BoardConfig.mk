@@ -139,7 +139,7 @@ BOARD_MAIN_PARTITION_LIST := product vendor system system_ext odm
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/configs/props/system.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
 TARGET_ODM_PROP += $(DEVICE_PATH)/configs/props/odm.prop
-
+TARGET_SYSTEM_EXT_PROO+= $(DEVICE_PATH)/configs/props/system_ext.prop
 # Recovery
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_USES_RECOVERY_AS_BOOT := false
