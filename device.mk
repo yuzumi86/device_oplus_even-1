@@ -16,14 +16,11 @@
 
 DEVICE_PATH := device/realme/even
 
+# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
+
 # Call proprietary blob setup
 $(call inherit-product, vendor/realme/even/even-vendor.mk)
-
-# Dalvik
-$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
-
-# Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # IMS
 $(call inherit-product, vendor/realme/even-ims/even-ims.mk)
@@ -41,10 +38,6 @@ TARGET_SCREEN_WIDTH := 720
 # Dynamic Partition
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
-
-# Disable APEX compression
-# Keep this after including updatable_apex.mk
-PRODUCT_COMPRESSED_APEX := false
 
 # Audio
 PRODUCT_PACKAGES += \
