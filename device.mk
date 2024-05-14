@@ -219,5 +219,20 @@ PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
-    $(DEVICE_PATH)/rro_overlays/TetheringConfigOverlay \
-    $(DEVICE_PATH)/rro_overlays/WifiOverlay
+    android.hardware.wifi@1.0-service-lazy
+
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.3.vendor \
+    android.hardware.wifi.supplicant@1.3.vendor \
+    android.hardware.wifi.hostapd@1.2.vendor \
+    android.hardware.wifi@1.3-impl
+
+PRODUCT_PACKAGES += \
+    libkeystore-engine-wifi-hidl \
+    libkeystore-wifi-hidl
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
+    $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf
+    
