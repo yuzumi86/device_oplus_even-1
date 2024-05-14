@@ -26,7 +26,7 @@ $(call inherit-product, device/realme/even/device.mk)
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_even
-PRODUCT_DEVICE := RMX3191
+PRODUCT_DEVICE := even
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := realme C25
 PRODUCT_MANUFACTURER := realme
