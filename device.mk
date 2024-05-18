@@ -117,12 +117,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.telephony.ims.xml
 
-# HIDL
-PRODUCT_PACKAGES += \
-    libhidltransport \
-    libhardware \
-    libhwbinder
-
 # Init
 PRODUCT_PACKAGES += \
     $(DEVICE_PATH)/rootdir/etc/init.mt6768.rc \
@@ -139,12 +133,27 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libsuspend \
     android.hardware.health@2.0
+    
+    # GPS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss.measurement_corrections@1.1.vendor \
+    android.hardware.gnss.visibility_control@1.0.vendor \
+    android.hardware.gnss@2.1.vendor
 
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.0-impl-2.1
+
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.allocator@1.0 \
+    android.hidl.allocator@1.0.vendor \
+    libhidltransport \
+    libhwbinder \
+    libhwbinder.vendor \
+    libhidltransport.vendor
 
 # Keymaster
 PRODUCT_PACKAGES += \
