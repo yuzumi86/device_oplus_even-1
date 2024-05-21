@@ -16,17 +16,20 @@
 
 DEVICE_PATH := device/realme/even
 
-# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
-
 # Call proprietary blob setup
 $(call inherit-product, vendor/realme/even/even-vendor.mk)
+
+# Enable updating of APEXes
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # IMS
 $(call inherit-product, vendor/realme/even-ims/even-ims.mk)
 
+# RealmeDirac
+$(call inherit-product, packages/apps/RealmeDirac/dirac.mk)
+
 # RealmeParts
-$(call inherit-product-if-exists, packages/apps/RealmeParts/parts.mk)
+$(call inherit-product, packages/apps/RealmeParts/parts.mk)
 
 # API
 PRODUCT_SHIPPING_API_LEVEL := 30
@@ -38,6 +41,9 @@ TARGET_SCREEN_WIDTH := 720
 # Dynamic Partition
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
+
+# Extra VNDK Versions
+PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -197,7 +203,8 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/power/power_app_cfg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/power_app_cfg.xml
 
 # Properties
--include $(DEVICE_PATH)/configs/props/vendor_prop.mk
+-include $(DEVICE_PATH)/configs/props/system.prop
+-include $(DEVICE_PATH)/configs/props/product.prop
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Recovery
