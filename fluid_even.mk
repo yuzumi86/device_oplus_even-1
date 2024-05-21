@@ -15,7 +15,7 @@
 #
 
 # Inherit some common Pixel-Experience stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/fluid/config/common_full_phone.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
@@ -25,7 +25,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/realme/even/device.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_even
+PRODUCT_NAME := fluid_even
 PRODUCT_DEVICE := even
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := realme C25
@@ -35,6 +35,9 @@ TARGET_GAPPS_ARCH := arm64
 TARGET_INCLUDE_LIVE_WALLPAPERS := false
 
 TARGET_BOOT_ANIMATION_RES := 720
+
+# Fluid stuff
+FLUID_BUILD_TYPE := OFFICIAL
 
 # Build info
 BUILD_FINGERPRINT := "realme/RMX3191T2/RMX3191:11/RP1A.200720.011/1647614838132:user/release-keys"
